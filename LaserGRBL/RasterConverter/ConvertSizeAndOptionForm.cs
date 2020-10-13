@@ -232,5 +232,10 @@ namespace LaserGRBL.RasterConverter
 			IIOffsetY.CurrentValue = -(IISizeH.CurrentValue / 2);
 			IIOffsetX.CurrentValue = -(IISizeW.CurrentValue / 2);
 		}
-	}
+
+    private void powerPercentageIntegerInput_CurrentValueChanged(object sender, int OldValue, int NewValue, bool ByUser)
+    {
+      IP.maxPowerPercentage = NewValue;
+    }
+  }
 }

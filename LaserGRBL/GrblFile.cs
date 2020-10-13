@@ -462,7 +462,7 @@ namespace LaserGRBL
         // So we have to speficy gcode (G0 or G1) each time....
         if (c.firmwareType == Firmware.Marlin)
         {
-          double maxPower = .18;
+          double maxPower = c.maxPowerPercentage/100.0;
           int adjustedSegColor = (int)(seg.mColor * maxPower);
           double adjustedPower = ((adjustedSegColor / 255.0) * 100);
           if (lastColorSend != seg.mColor)

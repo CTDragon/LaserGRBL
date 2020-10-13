@@ -652,14 +652,13 @@
   </data>
   <data name="BtnCenter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABG0lEQVQ4T2PAB0xMTBpAGMolHfj6+v4HYSgXP/jPzu72n42t/D8rqz4YA9nFqqrTQRhdHERDtSEA
-        UCIciDuQFHbkOTj8B2F0cSBtCHQWM1QrWHMECEO5cIArDICuLQVhKBdsQDUIQ7lgAPM/tnAAuiAdhKFc
-        oAADAxcIQ7lwgNMFQOfDvQBS0GVi8n+OjMwakE0gPowG4gNQDBcD0VvExXfN19UF88EGLNbW/r9dTGwv
-        sQaskJDYPNXAAGIACFDkBRDAFgsgm5AxVBgMiIoFEMDpAqyxwMamBcTl/1lYbP9zcCiA2BU2Nv+TXVxA
-        CQlZvAJIO0O1IgBUsg2o0B7GblVSmp+orT0BXRzItoJqww+w+Z8kgCsMEICBAQBGUrkhZm1ZmAAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEbSURBVDhPY8AH
+        TExMGkAYyiUd+Pr6/gdhKBc/+M/O7vafja38PyurPhgD2cWqqtNBGF0cREO1IQBQIhyIO5AUduQ5OPwH
+        YXRxIG0IdBYzVCtYcwQIQ7lwgCsMgK4tBWEoF2xANQhDuWAA8z+2cAC6IB2EoVygAAMDFwhDuXCA0wVA
+        58O9AFLQZWLyf46MzBqQTSA+jAbiA1AMFwPRW8TFd83X1QXzwQYs1tb+v11MbC+xBqyQkNg81cAAYgAI
+        UOQFEMAWCyCbkDFUGAyIigUQwOkCrLHAxqYFxOX/WVhs/3NwKIDYFTY2/5NdXEAJCVm8Akg7Q7UiAFSy
+        DajQHsZuVVKan6itPQFdHMi2gmrDD7D5nySAKwwQgIEBAEZSuSFmbVmYAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="BtnCenter.Location" type="System.Drawing.Point, System.Drawing">
@@ -714,13 +713,13 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label9" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIOffsetX" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="IIOffsetY" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="IISizeH" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="IISizeW" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label11" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="BtnCenter" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,15,AutoSize,0,Absolute,15,AutoSize,0,Absolute,20" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,16" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label9" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIOffsetX" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="IIOffsetY" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="IISizeH" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="IISizeW" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label11" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="BtnCenter" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,15,AutoSize,0,Absolute,15,AutoSize,0,Absolute,72" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,16" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbSize.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="GbSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 145</value>
+    <value>3, 165</value>
   </data>
   <data name="GbSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 92</value>
@@ -1061,6 +1060,63 @@
   <data name="tableLayoutPanel7.ColumnCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="powerPercentageLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="powerPercentageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="powerPercentageLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="powerPercentageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 53</value>
+  </data>
+  <data name="powerPercentageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="powerPercentageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="powerPercentageLabel.Text" xml:space="preserve">
+    <value>Power%</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageLabel.Name" xml:space="preserve">
+    <value>powerPercentageLabel</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="powerPercentageIntegerInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="powerPercentageIntegerInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 53</value>
+  </data>
+  <data name="powerPercentageIntegerInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 15</value>
+  </data>
+  <data name="powerPercentageIntegerInput.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageIntegerInput.Name" xml:space="preserve">
+    <value>powerPercentageIntegerInput</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageIntegerInput.Type" xml:space="preserve">
+    <value>LaserGRBL.UserControls.NumericInput.IntegerInputRanged, LaserGRBL, Version=3.7.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageIntegerInput.Parent" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="&gt;&gt;powerPercentageIntegerInput.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="BtnModulationInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -1104,7 +1160,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;BtnModulationInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label26.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1137,7 +1193,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="LblSmin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1170,7 +1226,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;LblSmin.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="IIMinPower.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1194,7 +1250,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;IIMinPower.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="LblSmax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1227,7 +1283,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;LblSmax.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="IIMaxPower.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1251,7 +1307,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;IIMaxPower.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label18.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1284,7 +1340,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="BtnOnOffInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1330,7 +1386,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;BtnOnOffInfo.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="CBLaserON.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 3</value>
@@ -1351,7 +1407,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;CBLaserON.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="CBLaserOFF.Items" xml:space="preserve">
     <value>M5</value>
@@ -1375,7 +1431,7 @@ Click for more information...</value>
     <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;CBLaserOFF.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="tableLayoutPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1384,10 +1440,10 @@ Click for more information...</value>
     <value>3, 16</value>
   </data>
   <data name="tableLayoutPanel7.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 50</value>
+    <value>265, 70</value>
   </data>
   <data name="tableLayoutPanel7.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1405,7 +1461,7 @@ Click for more information...</value>
     <value>0</value>
   </data>
   <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="BtnModulationInfo" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="label26" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblSmin" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMinPower" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblSmax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="IIMaxPower" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnOnOffInfo" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserON" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserOFF" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="powerPercentageLabel" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="powerPercentageIntegerInput" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnModulationInfo" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="label26" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="LblSmin" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IIMinPower" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LblSmax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="IIMaxPower" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="BtnOnOffInfo" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserON" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CBLaserOFF" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GbLaser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1414,7 +1470,7 @@ Click for more information...</value>
     <value>3, 70</value>
   </data>
   <data name="GbLaser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 69</value>
+    <value>271, 89</value>
   </data>
   <data name="GbLaser.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1501,13 +1557,13 @@ Click for more information...</value>
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 243</value>
+    <value>3, 263</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 39</value>
+    <value>271, 19</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1571,6 +1627,9 @@ Click for more information...</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>277, 285</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
