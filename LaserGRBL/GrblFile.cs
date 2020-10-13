@@ -45,8 +45,14 @@ namespace LaserGRBL
 			{
 				using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
 				{
-					if (header)
-						sw.WriteLine(Settings.GetObject("GCode.CustomHeader", GrblCore.GCODE_STD_HEADER));
+          sw.NewLine = "\n";
+
+          // todo: get image preview thumbnail
+          // maybe IP = new ImageProcessor(core, filename, GetImageSize(), append); IP.Original;
+          if (header)
+          {
+            sw.WriteLine(Settings.GetObject("GCode.CustomHeader", GrblCore.GCODE_STD_HEADER).Replace("{encodedImage}", GrblCore.Base64Thumbnail));
+          }
 
 					for (int i = 0; i < cycles; i++)
 					{
@@ -179,6 +185,8 @@ namespace LaserGRBL
 			{
 				cumX += mPixLen;
 
+        if (c.firmwareType == Firmware.Marlin && c.pwm)
+          return string.Format("X{0}", formatnumber(cumX, c.oX, c));
                 if (c.pwm)
                     return string.Format("X{0} {1}", formatnumber(cumX, c.oX, c), FormatLaserPower(mColor, c));
                 else
@@ -194,6 +202,8 @@ namespace LaserGRBL
 			{
 				cumY += mPixLen;
 
+        if (c.firmwareType == Firmware.Marlin && c.pwm)
+                    return string.Format("Y{0}", formatnumber(cumY, c.oY, c));
                 if (c.pwm)
                     return string.Format("Y{0} {1}", formatnumber(cumY, c.oY, c), FormatLaserPower(mColor, c));
                 else
@@ -210,6 +220,8 @@ namespace LaserGRBL
 				cumX += mPixLen;
 				cumY -= mPixLen;
 
+        if (c.firmwareType == Firmware.Marlin && c.pwm)
+                    return string.Format("X{0} Y{1}", formatnumber(cumX, c.oX, c), formatnumber(cumY, c.oY, c));
                 if (c.pwm)
                     return string.Format("X{0} Y{1} {2}", formatnumber(cumX, c.oX, c), formatnumber(cumY, c.oY, c), FormatLaserPower(mColor, c));
                 else
@@ -284,8 +296,10 @@ namespace LaserGRBL
 						Potrace.Export2GDIPlus(plist, g, Brushes.Black, null, Math.Max(1, c.res / c.fres), skipcmd);
 						using (Bitmap resampled = RasterConverter.ImageTransform.ResizeImage(ptb, new Size((int)(bmp.Width * c.fres / c.res), (int)(bmp.Height * c.fres / c.res)), true, InterpolationMode.HighQualityBicubic))
 						{
-							if (c.pwm)
-								list.Add(new GrblCommand(String.Format("{0} S0", c.lOn))); //laser on and power to zero
+              if (c.firmwareType == Firmware.Marlin && c.pwm)
+                list.Add(new GrblCommand(String.Format("{0} P0 S0", c.lOn))); //laser on and power to zero
+              else if (c.pwm)
+                  list.Add(new GrblCommand(String.Format("{0} S0", c.lOn))); //laser on and power to zero
 							else
 								list.Add(new GrblCommand(String.Format("{0} S255", c.lOff))); //laser off and power to max power
 
@@ -312,8 +326,10 @@ namespace LaserGRBL
 			list.Add(new GrblCommand(String.Format("{0} S{1}", c.lOff, c.maxPower)));
 			//set speed to borderspeed
 			// For marlin, need to specify G1 each time :
-			//list.Add(new GrblCommand(String.Format("G1 F{0}", c.borderSpeed)));
-			list.Add(new GrblCommand(String.Format("F{0}", c.borderSpeed)));
+      if (c.firmwareType == Firmware.Marlin)
+			  list.Add(new GrblCommand(String.Format("G1 F{0}", c.borderSpeed)));
+      else
+			  list.Add(new GrblCommand(String.Format("F{0}", c.borderSpeed)));
 
 			//trace borders
 			List<string> gc = Potrace.Export2GCode(plist, c.oX, c.oY, c.res, c.lOn, c.lOff, bmp.Size, skipcmd);
@@ -352,6 +368,7 @@ namespace LaserGRBL
 			public int borderSpeed;
 			public int minPower;
 			public int maxPower;
+      public int maxPowerPercentage;
 			public string lOn;
 			public string lOff;
 			public RasterConverter.ImageProcessor.Direction dir;
@@ -383,15 +400,19 @@ namespace LaserGRBL
 
 			//move fast to offset
 			list.Add(new GrblCommand(String.Format("{0} X{1} Y{2}", skipcmd, formatnumber(c.oX), formatnumber(c.oY))));
-			if (c.pwm)
+      if (c.firmwareType == Firmware.Marlin)
+        list.Add(new GrblCommand(String.Format("{0} P0 S0", c.lOn))); //laser on and power to zero
+      else if (c.pwm)
 				list.Add(new GrblCommand(String.Format("{0} S0", c.lOn))); //laser on and power to zero
 			else
 				list.Add(new GrblCommand(String.Format("{0} S255", c.lOff))); //laser off and power to maxpower
 
-			//set speed to markspeed						
-			// For marlin, need to specify G1 each time :
-			//list.Add(new GrblCommand(String.Format("G1 F{0}", c.markSpeed)));
-			list.Add(new GrblCommand(String.Format("F{0}", c.markSpeed)));
+      //set speed to markspeed						
+      // For marlin, need to specify G1 each time :
+      if (c.firmwareType == Firmware.Marlin)
+        list.Add(new GrblCommand(String.Format("G1 F{0}", c.markSpeed)));
+      else
+			  list.Add(new GrblCommand(String.Format("F{0}", c.markSpeed)));
 
 			ImageLine2Line(bmp, c);
 
@@ -418,40 +439,45 @@ namespace LaserGRBL
 			int cumX = 0;
 			int cumY = 0;
 
+      int lastColorSend = -1;
 			foreach (ColorSegment seg in segments)
 			{
 				bool changeGMode = (fast != seg.Fast(c)); //se veloce != dafareveloce
 
 				if (seg.IsSeparator && !fast) //fast = previous segment contains S0 color
 				{
-					if (c.pwm)
-						temp.Add(new GrblCommand("S0"));
-					else
-						temp.Add(new GrblCommand(c.lOff)); //laser off
+          if (c.firmwareType == Firmware.Marlin && c.pwm)
+          {
+            //temp.Add(new GrblCommand("M3 P0 S0"));
+          }
+          else if (c.pwm)
+            temp.Add(new GrblCommand("S0"));
+          else
+            temp.Add(new GrblCommand(c.lOff)); //laser off
 				}
 
 				fast = seg.Fast(c);
 
-				// For marlin firmware, we must defined laser power before moving (unsing M106 or M107)
-				// So we have to speficy gcode (G0 or G1) each time....
-				//if (c.firmwareType == Firmware.Marlin)
-				//{
-				//	// Add M106 only if color has changed
-				//	if (lastColorSend != seg.mColor)
-				//		temp.Add(new GrblCommand(String.Format("M106 P1 S{0}", fast ? 0 : seg.mColor)));
-				//	lastColorSend = seg.mColor;
-				//	temp.Add(new GrblCommand(String.Format("{0} {1}", fast ? "G0" : "G1", seg.ToGCodeNumber(ref cumX, ref cumY, c))));
-				//}
-				//else
-				//{
-
-				if (changeGMode)
-					temp.Add(new GrblCommand(String.Format("{0} {1}", fast ? skipcmd : "G1", seg.ToGCodeNumber(ref cumX, ref cumY, c))));
-				else
-					temp.Add(new GrblCommand(seg.ToGCodeNumber(ref cumX, ref cumY, c)));
-
-				//}
-			}
+        // For marlin firmware, we must defined laser power before moving (unsing M106 or M107)
+        // So we have to speficy gcode (G0 or G1) each time....
+        if (c.firmwareType == Firmware.Marlin)
+        {
+          double maxPower = .18;
+          int adjustedSegColor = (int)(seg.mColor * maxPower);
+          double adjustedPower = ((adjustedSegColor / 255.0) * 100);
+          if (lastColorSend != seg.mColor)
+            temp.Add(new GrblCommand(String.Format("M3 P{0} S{1}", fast ? 0.ToString() : formatnumber(adjustedPower), fast ? 0 : adjustedSegColor)));
+          lastColorSend = seg.mColor;
+          temp.Add(new GrblCommand(String.Format("{0} {1}", fast ? "G0" : "G1", seg.ToGCodeNumber(ref cumX, ref cumY, c))));
+        }
+        else
+        {
+          if (changeGMode)
+					  temp.Add(new GrblCommand(String.Format("{0} {1}", fast ? skipcmd : "G1", seg.ToGCodeNumber(ref cumX, ref cumY, c))));
+				  else
+					  temp.Add(new GrblCommand(seg.ToGCodeNumber(ref cumX, ref cumY, c)));
+        }
+      }
 
 			temp = OptimizeLine2Line(temp, c);
 			list.AddRange(temp);
@@ -495,10 +521,13 @@ namespace LaserGRBL
 
 					if (oldcumulate && !cumulate) //cumulate down front -> flush
 					{
-						if (c.pwm)
-							rv.Add(new GrblCommand(string.Format("{0} X{1} Y{2} S0", skipcmd, formatnumber((double)curX), formatnumber((double)curY))));
-						else
-							rv.Add(new GrblCommand(string.Format("{0} X{1} Y{2} {3}", skipcmd, formatnumber((double)curX), formatnumber((double)curY), c.lOff)));
+            if (c.pwm)
+            {
+              //rv.Add(new GrblCommand("M3 P0 S0"));
+              rv.Add(new GrblCommand(string.Format("{0} X{1} Y{2}", skipcmd, formatnumber((double)curX), formatnumber((double)curY))));
+            }
+            else
+              rv.Add(new GrblCommand(string.Format("{0} X{1} Y{2} {3}", skipcmd, formatnumber((double)curX), formatnumber((double)curY), c.lOff)));
 
 						//curX = curY = 0;
 					}

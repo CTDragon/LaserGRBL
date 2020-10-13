@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Threading;
 
 namespace LaserGRBL.RasterConverter
@@ -79,8 +80,9 @@ namespace LaserGRBL.RasterConverter
 		public int MarkSpeed;
 		public int MinPower;
 		public int MaxPower;
+    public int maxPowerPercentage;
 
-		private string mFileName;
+    private string mFileName;
 		private bool mAppend;
 		GrblCore mCore;
 
@@ -120,7 +122,8 @@ namespace LaserGRBL.RasterConverter
 
 			mBoxSize = boxSize;
 			ResizeRecalc();
-			mGrayScale = TestGrayScale(mOriginal);
+      GenerateThumbnail();
+      mGrayScale = TestGrayScale(mOriginal);
 		}
 
 		internal void FormResize(Size size)
@@ -396,10 +399,30 @@ namespace LaserGRBL.RasterConverter
 					mResized.Dispose();
 
 				mResized = ImageTransform.ResizeImage(mOriginal, CalculateResizeToFit(mOriginal.Size, mBoxSize), false, Interpolation);
-			}
+      }
 		}
 
-		public Tool SelectedTool
+    private void GenerateThumbnail()
+    {
+      lock (this)
+      {
+        double widthScale = 700 / (double)mOriginal.Size.Width;
+        double heightScale = 700 / (double)mOriginal.Size.Height;
+        double scale = Math.Min(widthScale, heightScale);
+        Size tumbSize = new Size((int)Math.Round((mOriginal.Size.Width * scale)), (int)Math.Round((mOriginal.Size.Height * scale)));
+
+        Image tempImage = ImageTransform.ResizeImage(mOriginal, CalculateResizeToFit(mOriginal.Size, mBoxSize), false, Interpolation);
+        using (MemoryStream m = new MemoryStream())
+        {
+          tempImage.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+          byte[] imageBytes = m.ToArray();
+          GrblCore.Base64Thumbnail = GrblCore.PngBase64Header + Convert.ToBase64String(imageBytes);
+        }
+        tempImage.Dispose();
+      }
+    }
+
+    public Tool SelectedTool
 		{
 			get { return mTool; }
 			set
@@ -1000,6 +1023,7 @@ namespace LaserGRBL.RasterConverter
 						conf.travelSpeed = TravelSpeed;
 						conf.minPower = MinPower;
 						conf.maxPower = MaxPower;
+            conf.maxPowerPercentage = maxPowerPercentage;
 						conf.lOn = LaserOn;
 						conf.lOff = LaserOff;
 						conf.dir = SelectedTool == ImageProcessor.Tool.Vectorize ? FillingDirection : LineDirection;

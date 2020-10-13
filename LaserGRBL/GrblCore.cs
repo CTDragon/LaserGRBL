@@ -24,11 +24,21 @@ namespace LaserGRBL
 		//public static PSHelper.PSFile MaterialDB = PSHelper.PSFile.Load();
 		public static PSHelper.MaterialDB MaterialDB = PSHelper.MaterialDB.Load();
 
-		public static string GCODE_STD_HEADER = "G90 (use absolute coordinates)";
-		public static string GCODE_STD_PASSES = ";(Uncomment if you want to sink Z axis)\r\n;G91 (use relative coordinates)\r\n;G0 Z-1 (sinks the Z axis, 1mm)\r\n;G90 (use absolute coordinates)";
-		public static string GCODE_STD_FOOTER = "G0 X0 Y0 Z0 (move back to origin)";
+		public static string GCODE_STD_HEADER = ";Header Start\n"+
+      ";header_type: laser\n"+
+      ";thumbnail: {encodedImage}\n"+
+      ";renderMethod: line\n"+
+      "G90\n"+
+      "G21\n"+
+      "M106 P0 S255";
+    public static string GCODE_STD_PASSES = ";(Uncomment if you want to sink Z axis)\r\n;G91 (use relative coordinates)\r\n;G0 Z-1 (sinks the Z axis, 1mm)\r\n;G90 (use absolute coordinates)";
+		public static string GCODE_STD_FOOTER = "G0 X0 Y0\n"+
+      "M107 P0"; // (move back to origin)
+    public static string PngBase64Header = "data:image/png;base64,";
+    public static string NoThumbnail = "data:image/png;base64,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";
+    public static string Base64Thumbnail = NoThumbnail;
 
-		[Serializable]
+    [Serializable]
 		public class ThreadingMode
 		{
 			public readonly int StatusQuery;
